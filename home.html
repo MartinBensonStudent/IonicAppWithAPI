@@ -1,0 +1,69 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Martin Benson SW Development
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    
+	<!--
+	This item is being used to call the information from the quotes.ts provider and displaying a random quote every time this page is navigated to.
+	-->
+	<ion-list>
+	<ion-item>
+		<h1>Quotes from {{authors}} about: </h1>
+		<h3><ul> {{tags}} </ul> </h3>
+		<h1>{{quotes}} </h1>
+	</ion-item>
+    </ion-list>
+
+   <!--
+	This button opens the Settings page.
+   -->
+   <button ion-button color="dark" round (click)="openSettingsPage()">Settings</button>
+
+	<!-- 
+	This shows the country ID number and name of the country.
+	-->
+<ion-item>
+	<h1>Country ID is {{countryID}} and name is {{country}} </h1>
+</ion-item>
+	
+	<!-- 
+	This shows the flag. I used the normal img tag instead of ion img tag because the ion img tag produced a tiny image.
+	-->
+	<ion-item>
+	<img src="https://flagsapi.com/{{countryCode | uppercase}}/shiny/64.png" alt="Image will appear after entering info on Settings page"/>
+</ion-item>
+
+	<!--
+	This is the table that will show the players and their info.
+	-->
+  <ion-content>
+	<ion-item>
+    <ion-row>
+      <ion-col>First Name</ion-col>
+      <ion-col>Surname</ion-col>
+      <ion-col>Age</ion-col>
+	  <ion-col>Height</ion-col>
+    </ion-row>
+	</ion-item>
+	
+	<ion-item *ngFor="let data of player">
+    <ion-row >
+      <ion-col> {{ data.firstname }}</ion-col>
+      <ion-col>{{ data.lastname }}</ion-col>
+      <ion-col>{{ data.age }}</ion-col>
+	  <ion-col>{{ data.height }}</ion-col>
+    </ion-row>
+	</ion-item>
+  </ion-content>
+
+
+
+
+ </ion-content>  
+  
+
